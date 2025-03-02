@@ -1,1 +1,1 @@
-This is a demo/boilerplate for creating pdf templates using html and nunjucks
+This is a full stack app to 
