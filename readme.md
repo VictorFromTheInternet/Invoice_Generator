@@ -3,15 +3,15 @@ This is a full stack app for generating invoices/pdfs. There is a form that will
 
 ## Tech Stack
 ### Frontend:
-1. React.js
-1. Redux
-1. Axios
+- React.js
+- Redux
+- Axios
 
 ### Backend:
-1. Node.js
-1. Express.js
-1. Nunjucks
-1. Puppeteer
-1. MongoDB
-1. Mongoose
-1. jsonwebtoken (JWT)
+- Node.js
+- Express.js
+- Nunjucks
+- Puppeteer
+- MongoDB
+- Mongoose
+- jsonwebtoken (JWT)
