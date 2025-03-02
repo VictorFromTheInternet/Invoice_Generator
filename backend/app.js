@@ -1,7 +1,12 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
-const pdf_router = require('./backend/routes/pdf_router')
-const logger = require('./backend/middleware/logging')
+// const pdf_router = require('./backend/routes/pdf_router')
+// const logger = require('./backend/middleware/logging')
+
+const pdf_router = require('./routes/pdf_router')
+const logger = require('./middleware/logging')
+
+
 
 const app = express()
 const port = process.env.PORT || 3000

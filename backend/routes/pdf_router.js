@@ -42,7 +42,7 @@ router.post('/demo', async (req,res)=>{
         await page.setContent(htmlString)
         await page.emulateMediaType('screen')
         const pdfData = await page.pdf({
-            path: 'app/output files/test.pdf',
+            path: './output files/test.pdf',
             format: 'A4',
             printBackground: true
         })
