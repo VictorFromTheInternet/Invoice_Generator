@@ -7,9 +7,12 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    <form action="http://localhost:5000/demo" method="post" target="_self">
+    <form action="http://localhost:5000/demo" method="POST" >
+        <label for="template">Template:</label>
+        <input id="template" name="template" type="text" value="" required placeholder="index">
+        
         <label for="title">Title:</label>
-        <input id="title" type="text" required>
+        <input id="title" name="title" type="text" value="" required>
         <button type="submit">Generate Invoice PDF</button>
     </form>
 </body>

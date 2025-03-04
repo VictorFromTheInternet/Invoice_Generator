@@ -1,8 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
-// const pdf_router = require('./backend/routes/pdf_router')
-// const logger = require('./backend/middleware/logging')
 
+const views_router = require('./routes/views_router')
 const pdf_router = require('./routes/pdf_router')
 const logger = require('./middleware/logging')
 
@@ -18,6 +17,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/', logger)
 
 // routes
+app.use('/', views_router)
 app.use('/', pdf_router)
 
 

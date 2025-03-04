@@ -26,9 +26,9 @@ async function getHtmlString(template, data){
 
 
 // routes
-router.get('/',(req,res)=>{
-    res.send({"message":"hello world"})
-})
+// router.get('/',(req,res)=>{
+//     res.send({"message":"hello world"})
+// })
 
 router.post('/demo', async (req,res)=>{
     try{
