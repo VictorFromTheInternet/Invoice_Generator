@@ -1,5 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
+const path = require('path')
 
 const views_router = require('./routes/views_router')
 const pdf_router = require('./routes/pdf_router')
@@ -17,6 +18,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/', logger)
 
 // routes
+app.use(express.static(path.join(__dirname, "..", "frontend","public")));
 app.use('/', views_router)
 app.use('/', pdf_router)
 
