@@ -7,13 +7,7 @@ async function generateInvoice(formData){
         headers:{
             'Content-Type':'application/json'
         },
-        body: JSON.stringify({
-            template: formData.template,
-            data: {
-                title: formData.title,
-                table: formData.table
-            }            
-        })
+        body: JSON.stringify(formData)
     })
 
     const pdfData = await response.json()
