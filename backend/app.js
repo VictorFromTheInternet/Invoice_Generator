@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 // Middleware
-app.use('/', logger)
+// app.use('/', logger)
 
 // routes
 app.use(express.static(path.join(__dirname, "..", "frontend","public")));
