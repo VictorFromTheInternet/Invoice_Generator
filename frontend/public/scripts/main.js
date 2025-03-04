@@ -16,8 +16,6 @@ async function generateInvoice(formData){
 }
 
 async function showPDF(dataUrl){
-
-
     const pdfContainer = document.querySelector('.pdf-container')
 
     let iframePdf = document.createElement('iframe')
