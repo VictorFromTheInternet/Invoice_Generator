@@ -5,7 +5,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /app/backend
 
-COPY backend/package*.json ./
+COPY package*.json ./
 RUN npm ci
 COPY . .
 CMD ["node", "app.js"]
