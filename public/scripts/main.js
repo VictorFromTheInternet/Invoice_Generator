@@ -1,8 +1,6 @@
 
-
-// http://localhost:5000/demo 
 async function generateInvoice(formData){
-    const response = await fetch('http://localhost:5000/demo', {
+    const response = await fetch(`https://invoice-generator-api-5far.onrender.com/demo`, {
         method: 'POST',
         headers:{
             'Content-Type':'application/json'

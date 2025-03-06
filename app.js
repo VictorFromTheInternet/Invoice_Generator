@@ -10,7 +10,7 @@ const logger = require('./middleware/logging')
 
 const app = express()
 const port = process.env.PORT || 3000
-console.log(process.env.PORT)
+const domain = process.env.DOMAIN || 'http://localhost'
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -28,5 +28,5 @@ app.use('/', pdf_router)
 
 app.listen(port, ()=>{
     console.log(`Server Started`)
-    console.log(`Listening on : http://localhost:${port}`)
+    console.log(`Listening on : ${domain}:${port}`)
 })
