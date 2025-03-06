@@ -1,5 +1,5 @@
 const express = require('express')
-const dotenv = require('dotenv').config()
+require('dotenv').config()
 const path = require('path')
 
 const views_router = require('./routes/views_router')
@@ -10,6 +10,7 @@ const logger = require('./middleware/logging')
 
 const app = express()
 const port = process.env.PORT || 3000
+console.log(process.env.PORT)
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -18,7 +19,7 @@ app.use(express.urlencoded({extended: true}))
 // app.use('/', logger)
 
 // routes
-app.use(express.static(path.join(__dirname, "..", "frontend","public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use('/', views_router)
 app.use('/', pdf_router)
 

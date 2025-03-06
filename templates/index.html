@@ -19,7 +19,7 @@
             --table-light-border: rgba(114,114,114,.75);
             --table-dark-border: rgba(25,25,25,1);
 
-            --font-family-sans: "Gill Sans", sans-serif;
+            --font-family-sans: "Open Sans", sans-serif;
             --font-family-monospace: "Courier New", Courier, monospace;
 
             --font-size-xsm: 7pt;
@@ -155,7 +155,7 @@
         }
         .table thead tr[class~="table-header-secondary"]{
             background-color: var(--table-header-secondary);
-            color: white;
+            color: black;
         }
 
         /* applying border to the right of all table cells (except last) */
@@ -189,6 +189,9 @@
         <table class="table">
             <thead>
                 <tr class="table-header-primary">
+                    <th colspan="3">Table Data</th>                    
+                </tr>
+                <tr class="table-header-secondary">
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>ID</th>
