@@ -1,0 +1,9 @@
+:root{
+    --card-white: rgb(255,255,255);
+}
+
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}

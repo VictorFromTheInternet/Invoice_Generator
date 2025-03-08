@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Invoice Generator</title>
 
     <script src="../scripts/main.js" defer></script>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <label for="template">Template:</label>
-    <input id="template" name="template" type="text" value="" required placeholder="index">
     
-    <label for="title">Title:</label>
-    <input id="title" name="title" type="text" value="" required>
-    <button id="btnDemo">Generate Invoice PDF</button>
+    <nav></nav>
 
-    <br>
+    <main>
+        <aside></aside>
+        <section>
+            <h1>Hello World</h1>
+            <label for="template">Template:</label>
+            <input id="template" name="template" type="text" value="" required placeholder="index">
+            
+            <label for="title">Title:</label>
+            <input id="title" name="title" type="text" value="" required>
+            <button id="btnDemo">Generate Invoice PDF</button>                        
+        </section>
+        <section>
+            <div class="pdf-container">
+                
+            </div>
+        </section>
+    </main>
 
-    <div class="pdf-container">
-        
-    </div>
+    <footer>
+    </footer>    
 </body>
 </html>
