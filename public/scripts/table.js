@@ -2,18 +2,18 @@
 const tableLineItems = document.querySelector('#tableLineItems');
 
 function addRow(){
+    // create row
     let row = document.createElement('tr')
-    let quantity = document.createElement('td')
-    let item = document.createElement('td')
-    let description = document.createElement('td')
-    let unitPrice = document.createElement('td')
 
-    row.appendChild(quantity)
-    row.appendChild(item)
-    row.appendChild(description)
-    row.appendChild(unitPrice)
+    row.innerHTML = 
+    `
+    <td><input class="quantity" type="number"></td>
+    <td><input class="item" type="text"></td>
+    <td><input class="description" type="text"></td>
+    <td><input class="unitPrice" type="number"></td>
+    `
 
-
+    // add row
     tableLineItems.querySelector('tbody').appendChild(row)
 }
 
@@ -24,6 +24,25 @@ function removeRow(){
     parent.removeChild(child)
 }
 
+function sumUnitPrice(){
+    console.log(tableLineItems)
+
+    let lineItems = tableLineItems.querySelectorAll('.unitPrice')
+    console.log(lineItems)
+
+    let sum = 0
+    lineItems.forEach((elm,ind)=>{
+        console.log(elm.value)
+        sum += Number.parseFloat(elm.value)
+    })
+
+    return sum
+}
+
+
+
+
+
 document.getElementById('btnAddRow').addEventListener('click', ()=>{
     console.log('Add Row')
     addRow()
@@ -32,4 +51,9 @@ document.getElementById('btnAddRow').addEventListener('click', ()=>{
 document.getElementById('btnRemoveRow').addEventListener('click', ()=>{
     console.log('Remove Row')
     removeRow()
+})
+
+document.getElementById('btnSumUnitPrice').addEventListener('click', ()=>{
+    console.log('Sum Unit Price')
+    console.log(sumUnitPrice())
 })
