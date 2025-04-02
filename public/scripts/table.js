@@ -7,10 +7,10 @@ function addRow(){
 
     row.innerHTML = 
     `
-    <td><input class="quantity" type="number"></td>
-    <td><input class="item" type="text"></td>
-    <td><input class="description" type="text"></td>
-    <td><input class="unitPrice" type="number"></td>
+    <td><input class="quantity" type="number" value="0" min="0" required></td>
+    <td><input class="item" type="text" placeholder="Name" required></td>
+    <td><input class="description" type="text" placeholder="Lorem Ipsum ..." required></td>
+    <td><input class="unitPrice" type="number" value="0" min="0" required></td>
     `
 
     // add row

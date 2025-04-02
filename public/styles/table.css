@@ -46,7 +46,7 @@
 .table th{
     padding: .75rem;
     color: white;
-    background-color: var(--table-header-primary);    
+    background-color: var(--bg-container-secondary);    
 }
 
 /* border */

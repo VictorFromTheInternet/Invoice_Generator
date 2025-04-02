@@ -43,7 +43,11 @@
         <section>
             <h1>Invoice Generator</h1>
             <label for="template">Template:</label>
-            <input id="template" name="template" type="text" value="index" required placeholder="index" disabled>
+            <!-- <input id="template" name="template" type="text" value="invoice-basic" required placeholder="index" disabled> -->
+            <select name="template" id="template" disabled>
+                <option value="index">index</option>
+                <option value="invoice-basic" selected>invoice-basic</option>
+            </select>
             
             <label for="title">Title:</label>
             <input id="title" name="title" type="text" value="" required>
@@ -62,10 +66,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input class="quantity" type="number"></td>
-                        <td><input class="item" type="text"></td>
-                        <td><input class="description" type="text"></td>
-                        <td><input class="unitPrice" type="number"></td>
+                        <td><input class="quantity" type="number" value="0" min="0" required></td>
+                        <td><input class="item" type="text" placeholder="Name" required></td>
+                        <td><input class="description" type="text" placeholder="Lorem Ipsum ..." required></td>
+                        <td><input class="unitPrice" type="number" value="0" min="0" required></td>
                     </tr>                    
                     
                 </tbody>   

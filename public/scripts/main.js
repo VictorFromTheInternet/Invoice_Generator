@@ -1,6 +1,9 @@
 
 async function generateInvoice(formData){
-    const response = await fetch(`https://invoice-generator-api-5far.onrender.com/demo`, {
+    const baseUrl = window.location.hostname === 'localhost'
+        ? 'http://localhost:3000/demo' // Development URL
+        : 'https://invoice-generator-api-5far.onrender.com/demo'; // Production URL
+    const response = await fetch(baseUrl, {
         method: 'POST',
         headers:{
             'Content-Type':'application/json'
@@ -27,24 +30,42 @@ async function showPDF(dataUrl){
     pdfContainer.appendChild(iframePdf)
 }
 
+
+function getTableData(){
+    const tableLineItems = document.querySelectorAll('#tableLineItems tbody tr');
+    console.log(tableLineItems)
+    
+    let tableData = []
+    tableLineItems.forEach((elm,ind)=>{
+        let quantity = elm.querySelector('.quantity').value
+        let item = elm.querySelector('.item').value
+        let description = elm.querySelector('.description').value
+        let unitPrice = elm.querySelector('.unitPrice').value
+
+        let tempRow = {
+            "quantity":quantity,
+            "item":item,
+            "description":description,
+            "unitPrice":unitPrice
+        }
+
+        console.log(tableData)
+        tableData.push(tempRow)
+    })
+
+    return tableData
+}
+
 document.querySelector('#btnDemo').addEventListener('click', ()=>{
     let template = document.querySelector('#template').value
     let title = document.querySelector('#title').value
-    let table = [
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"},
-        {"firstName":"Victor","lastName":"Arreola","ID":"1"}
-    ]
+    let tableData = getTableData()
     
     let formData = {
         "template": template,
         "data": {
             "title": title,
-            "table": table
+            "table": tableData
         }
     }
 
