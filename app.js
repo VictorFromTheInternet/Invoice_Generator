@@ -10,7 +10,7 @@ const logger = require('./middleware/logging')
 
 const app = express()
 const port = process.env.PORT || 3000
-const domain = process.env.DOMAIN || 'http://localhost'
+const domain = (process.env.NODE_ENV == 'prod') ? process.env.DOMAIN : 'http://localhost'
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))

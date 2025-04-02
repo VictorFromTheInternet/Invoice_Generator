@@ -6,12 +6,13 @@
     <title>Invoice Generator</title>
 
     <script src="../scripts/main.js" defer></script>
+    <script src="../scripts/table.js" defer></script>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/table.css">
     <link rel="stylesheet" href="../styles/icons.css">
 
     <!-- Google icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     
@@ -34,19 +35,45 @@
                     <span class="link-text">Download</span>
                 </a>
             </li>                                    
-        </ul>        
+        </ul>      
+
     </nav>
 
-    <main>
-        <aside></aside>
+    <main>        
         <section>
-            <h1>Hello World</h1>
+            <h1>Invoice Generator</h1>
             <label for="template">Template:</label>
-            <input id="template" name="template" type="text" value="" required placeholder="index">
+            <input id="template" name="template" type="text" value="index" required placeholder="index" disabled>
             
             <label for="title">Title:</label>
             <input id="title" name="title" type="text" value="" required>
             <button id="btnDemo">Generate Invoice PDF</button>                        
+        </section>
+        <section>
+            <table class="table" id="tableLineItems">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Unit Price</th>       
+                                   
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="quantity" type="number"></td>
+                        <td><input class="item" type="text"></td>
+                        <td><input class="description" type="text"></td>
+                        <td><input class="unitPrice" type="number"></td>
+                    </tr>                    
+                    
+                </tbody>   
+                           
+            </table>
+
+            <button id="btnAddRow">Add Row</button>
+            <button id="btnRemoveRow">Remove Row</button>
         </section>
         <section>
             <div class="pdf-container">
