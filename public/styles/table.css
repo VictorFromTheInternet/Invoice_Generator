@@ -1,6 +1,7 @@
 :root{    
     --border-color-primary: rgb(25,25,25);
     --border-color-secondary: rgb(150,150,150);
+    --border-color-light: rgb(200,200,200);
     
     --table-header-primary: rgb(25,25,25);
     --table-header-secondary: rgba(150,150,150,1);
@@ -32,7 +33,7 @@
 .table{
     border-collapse: collapse;
     font-family: var(--font-family-primary);    
-    border: 1px solid var(--table-light-border);
+    /* border: 1px solid var(--table-light-border); */
     
     margin: 1rem 0;
 }
@@ -57,4 +58,22 @@
 
 .table td input{    
     border: none;
+}
+
+
+/* table footer */
+.table tfoot th[class~="blank"]{
+    border: none;
+}
+.table tfoot td[class~="blank"]{
+    border: none;
+}
+.table tfoot tr[class~="blank"]{
+    border: none;
+}
+
+.table tfoot th{
+    text-align: right;
+    color: white;
+    background-color: var(--bg-container-secondary);    
 }

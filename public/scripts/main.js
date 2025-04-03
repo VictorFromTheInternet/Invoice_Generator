@@ -1,8 +1,14 @@
 
 async function generateInvoice(formData){
+    //loading spinner
+    const spinner = document.getElementById('loadingSpinner')
+    spinner.classList.add('loading-spinner')
+
+
     const baseUrl = window.location.hostname === 'localhost'
         ? 'http://localhost:5000/demo' // Development URL
         : 'https://invoice-generator-api-5far.onrender.com/demo'; // Production URL
+
     const response = await fetch(baseUrl, {
         method: 'POST',
         headers:{
@@ -12,8 +18,10 @@ async function generateInvoice(formData){
     })
 
     const pdfData = await response.json()
+
+    spinner.remove('loading-spinner')
     showPDF(pdfData.dataUrl)
-    console.log(pdfData)
+    // console.log(pdfData)
 }
 
 async function showPDF(dataUrl){

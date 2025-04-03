@@ -1,6 +1,7 @@
 :root{    
     --border-color-primary: rgb(25,25,25);
     --border-color-secondary: rgb(150,150,150);
+    --border-color-light: rgb(200,200,200);
     
     --table-header-primary: rgb(25,25,25);
     --table-header-secondary: rgba(150,150,150,1);
@@ -152,6 +153,22 @@ main{
     color: var(--accent-color-primary);
 }
 
+
+/* spinner */
+.loading-spinner{
+    display: inline-block;
+    border: 6px solid var(--border-color-light);
+    border-top: 6px solid var(--accent-color-primary);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation: spin 2s linear infinite;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 
 

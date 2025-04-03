@@ -19,7 +19,7 @@
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="#for1" class="nav-link">                    
+                <a href="#form" class="nav-link">                    
                     <span class="material-icons">
                         edit
                         </span>
@@ -51,7 +51,8 @@
             
             <label for="title">Title:</label>
             <input id="title" name="title" type="text" value="" required>
-            <button id="btnDemo" class="btn btn-primary">Generate Invoice PDF</button>                        
+            <button id="btnDemo" class="btn btn-primary">Generate Invoice PDF</button>   
+            <span id="loadingSpinner" ></span>
         </section>
         <section>
             <table class="table" id="tableLineItems">
@@ -73,6 +74,28 @@
                     </tr>                    
                     
                 </tbody>   
+                <tfoot>
+                    <tr>                        
+                        <td colspan="2" class="blank"></td>
+                        <th >Subtotal</th>
+                        <td ><input class="subtotal" type="number" value="0" min="0" required disabled></td>                        
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="blank"></td>
+                        <th >Taxes</th>
+                        <td ><input class="taxes" type="number" value="0" min="0" required ></td>                        
+                    </tr>
+                    <tr>                     
+                        <td colspan="2" class="blank"></td>
+                        <th >Fees</th>
+                        <td ><input class="fees" type="number" value="0" min="0" required ></td>                        
+                    </tr>
+                    <tr>                     
+                        <td colspan="2" class="blank"></td>
+                        <th >Total</th>
+                        <td ><input class="total" type="number" value="0" min="0" required disabled></td>                        
+                    </tr>
+                </tfoot>
                            
             </table>
 
