@@ -2,7 +2,7 @@
 async function generateInvoice(formData){
     //loading spinner
     const spinner = document.getElementById('loadingSpinner')
-    spinner.classList.add('loading-spinner')
+    spinner.classList.remove('hidden')
 
 
     const baseUrl = window.location.hostname === 'localhost'
@@ -19,7 +19,7 @@ async function generateInvoice(formData){
 
     const pdfData = await response.json()
 
-    spinner.remove('loading-spinner')
+    spinner.classList.add('hidden')
     showPDF(pdfData.dataUrl)
     // console.log(pdfData)
 }
@@ -68,16 +68,25 @@ function getTableData(){
     return tableData
 }
 
+
 document.querySelector('#btnDemo').addEventListener('click', ()=>{
     let template = document.querySelector('#template').value
     let title = document.querySelector('#title').value
     let tableData = getTableData()
+    let subtotal = document.querySelector('#subtotal').value
+    let taxes = document.querySelector('#taxes').value
+    let fees = document.querySelector('#fees').value
+    let total = document.querySelector('#total').value
     
     let formData = {
         "template": template,
         "data": {
             "title": title,
-            "table": tableData
+            "table": tableData,
+            "subtotal": subtotal,
+            "taxes": taxes,
+            "fees": fees,
+            "total": total
         }
     }
 

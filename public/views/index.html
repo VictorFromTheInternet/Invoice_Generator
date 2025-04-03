@@ -52,7 +52,7 @@
             <label for="title">Title:</label>
             <input id="title" name="title" type="text" value="" required>
             <button id="btnDemo" class="btn btn-primary">Generate Invoice PDF</button>   
-            <span id="loadingSpinner" ></span>
+            <span id="loadingSpinner" class="loading-spinner hidden" ></span>
         </section>
         <section>
             <table class="table" id="tableLineItems">
@@ -78,22 +78,22 @@
                     <tr>                        
                         <td colspan="2" class="blank"></td>
                         <th >Subtotal</th>
-                        <td ><input class="subtotal" type="number" value="0" min="0" required disabled></td>                        
+                        <td ><input id="subtotal" class="subtotal" type="number" value="0" min="0" required disabled></td>                        
                     </tr>
                     <tr>
                         <td colspan="2" class="blank"></td>
                         <th >Taxes</th>
-                        <td ><input class="taxes" type="number" value="0" min="0" required ></td>                        
+                        <td ><input id="taxes" class="taxes" type="number" value="0" min="0" required ></td>                        
                     </tr>
                     <tr>                     
                         <td colspan="2" class="blank"></td>
                         <th >Fees</th>
-                        <td ><input class="fees" type="number" value="0" min="0" required ></td>                        
+                        <td ><input id="fees" class="fees" type="number" value="0" min="0" required ></td>                        
                     </tr>
                     <tr>                     
                         <td colspan="2" class="blank"></td>
                         <th >Total</th>
-                        <td ><input class="total" type="number" value="0" min="0" required disabled></td>                        
+                        <td ><input id="total" class="total" type="number" value="0" min="0" required disabled></td>                        
                     </tr>
                 </tfoot>
                            
@@ -101,7 +101,7 @@
 
             <button class="btn btn-secondary" id="btnAddRow">Add Row</button>
             <button class="btn btn-secondary" id="btnRemoveRow">Remove Row</button>
-            <button class="btn btn-secondary" id="btnSumUnitPrice">Sum Unit Price</button>
+            <button class="btn btn-secondary" id="btnCalcTotals">Calc Totals</button>
         </section>
         <section class="pdf-container">
             <iframe id="pdf-iframe" hidden>

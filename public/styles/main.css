@@ -99,6 +99,7 @@ main{
     top: 0px;
     left: 0px;
     background-color: var(--bg-container-secondary);
+    z-index: 1000;
 
     transition: 200ms ease-out;
 }
@@ -170,6 +171,11 @@ main{
     100% { transform: rotate(360deg); }
   }
 
+
+  /* hidden */
+  .hidden{
+    display: none !important;
+  }
 
 
 

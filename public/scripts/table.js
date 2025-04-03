@@ -24,10 +24,19 @@ function removeRow(){
     parent.removeChild(child)
 }
 
-function sumUnitPrice(){
-    console.log(tableLineItems)
+function calcTotals(){
+    console.log('calc totals')
+    let subtotal = document.querySelector('#subtotal')
+    let fees = Number.parseFloat(document.querySelector('#fees').value)
+    let taxes = Number.parseFloat(document.querySelector('#taxes').value)
+    let total = document.querySelector('#total')
 
-    let lineItems = tableLineItems.querySelectorAll('.unitPrice')
+    // const tableLineItems = document.querySelectorAll('#tableLineItems tbody tr');
+    // console.log(tableLineItems)
+    // console.log(subtotal)
+    
+    // calc subtotal    
+    let lineItems = document.querySelectorAll('#tableLineItems tbody tr.unitPrice')
     console.log(lineItems)
 
     let sum = 0
@@ -35,11 +44,13 @@ function sumUnitPrice(){
         console.log(elm.value)
         sum += Number.parseFloat(elm.value)
     })
+    subtotal.value = sum
 
-    return sum
+    // calc total
+    total.value = sum - (fees + taxes)
+
+
 }
-
-
 
 
 
@@ -53,7 +64,7 @@ document.getElementById('btnRemoveRow').addEventListener('click', ()=>{
     removeRow()
 })
 
-document.getElementById('btnSumUnitPrice').addEventListener('click', ()=>{
-    console.log('Sum Unit Price')
-    console.log(sumUnitPrice())
+document.getElementById('btnCalcTotals').addEventListener('click', ()=>{
+    console.log('calc totals')
+    console.log(calcTotals())
 })

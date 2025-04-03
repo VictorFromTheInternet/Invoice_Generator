@@ -139,7 +139,7 @@
             table-layout: auto;            
             
 
-            border: 1px solid var(--table-light-border);
+            /* border: 1px solid var(--table-light-border); */
             font-family: var(--font-family-sans);
 
         }
@@ -177,6 +177,26 @@
             border-bottom: 1px solid var(--table-light-border);
         }
 
+
+        /* table footer */        
+        .table tfoot th[class~="blank"]{
+            border: none !important;
+            background-color: white;
+        }
+        .table tfoot td[class~="blank"]{
+            border: none !important;
+            background-color: white;
+        }
+        /* .table tfoot tr[class~="blank"]{
+            border: none !important;
+            background-color: white;
+        } */
+
+        .table tfoot th{
+            text-align: right;
+            color: white;
+            background-color: var(--table-header-primary);
+        }
         
     </style>
 </head>
@@ -208,6 +228,29 @@
                 </tr>
                 {% endfor %}
             </tbody>
+
+            <tfoot>
+                <tr class="blank">                        
+                    <td colspan="2" class="blank"></td>
+                    <th >Subtotal</th>
+                    <td >{{data.subtotal}}</td>                        
+                </tr>
+                <tr class="blank">
+                    <td colspan="2" class="blank"></td>
+                    <th >Taxes</th>
+                    <td>{{data.taxes}}</td>
+                </tr>
+                <tr class="blank">                     
+                    <td colspan="2" class="blank"></td>
+                    <th >Fees</th>
+                    <td>{{data.fees}}</td>
+                </tr>
+                <tr class="blank">                     
+                    <td colspan="2" class="blank"></td>
+                    <th >Total</th>
+                    <td>{{data.total}}</td>
+                </tr>
+            </tfoot>
         </table>   
     </div>     
 </body>
