@@ -1,7 +1,7 @@
 
 async function generateInvoice(formData){
     const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://localhost:3000/demo' // Development URL
+        ? 'http://localhost:5000/demo' // Development URL
         : 'https://invoice-generator-api-5far.onrender.com/demo'; // Production URL
     const response = await fetch(baseUrl, {
         method: 'POST',
@@ -18,16 +18,20 @@ async function generateInvoice(formData){
 
 async function showPDF(dataUrl){
     const pdfContainer = document.querySelector('.pdf-container')
+    let child = document.querySelector('#pdf-iframe')    
+    pdfContainer.removeChild(child)
+    
 
-    let iframePdf = document.createElement('iframe')
-    iframePdf.src = dataUrl
-    iframePdf.height = 480
-    iframePdf.width = 720
+    let pdfIframe = document.createElement('iframe')
+    pdfIframe.id = 'pdf-iframe'
+    pdfIframe.src = dataUrl
+    pdfIframe.height = 480
+    pdfIframe.width = 720
 
-    console.log(iframePdf)
+    console.log(pdfIframe)
     console.log(pdfContainer)
 
-    pdfContainer.appendChild(iframePdf)
+    pdfContainer.appendChild(pdfIframe)
 }
 
 

@@ -51,7 +51,7 @@
             
             <label for="title">Title:</label>
             <input id="title" name="title" type="text" value="" required>
-            <button id="btnDemo">Generate Invoice PDF</button>                        
+            <button id="btnDemo" class="btn btn-primary">Generate Invoice PDF</button>                        
         </section>
         <section>
             <table class="table" id="tableLineItems">
@@ -76,14 +76,14 @@
                            
             </table>
 
-            <button id="btnAddRow">Add Row</button>
-            <button id="btnRemoveRow">Remove Row</button>
-            <button id="btnSumUnitPrice">Sum Unit Price</button>
+            <button class="btn btn-secondary" id="btnAddRow">Add Row</button>
+            <button class="btn btn-secondary" id="btnRemoveRow">Remove Row</button>
+            <button class="btn btn-secondary" id="btnSumUnitPrice">Sum Unit Price</button>
         </section>
-        <section>
-            <div class="pdf-container">
+        <section class="pdf-container">
+            <iframe id="pdf-iframe" hidden>
                 
-            </div>
+            </iframe>
         </section>
     </main>
 
