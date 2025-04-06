@@ -202,7 +202,7 @@ main{
     display:none;
     margin-left: 1rem;
     margin-right: 1rem;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 .nav-link i{
     width: 2rem;
