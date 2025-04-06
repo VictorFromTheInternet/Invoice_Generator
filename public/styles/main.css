@@ -28,8 +28,7 @@
 
     --transition-speed: 200ms;
 }
-
-body{
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -39,11 +38,80 @@ p, h1, h2, h3, h4, h5, span{
     font-family: var(--font-family-primary);
 }
 
-label, input, select{
-    font-family: var(--font-family-primary);
+/* rows and columns */
+/* auto row and columns */
+.row-grid-auto{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    width: 100%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.col{
+    display: block;
+}
+
+/* template row and columns */
+.row-grid-template{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;    
+    width: 100%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.col-span-1{
+    grid-column: span 1;
+}
+.col-span-2{
+    grid-column: span 2;
+}
+.col-span-3{
+    grid-column: span 3;
+}
+.col-span-4{
+    grid-column: span 4;
+}        
+.col-span-5{
+    grid-column: span 5;
+}
+.col-span-6{
+    grid-column: span 6;
+}
+.col-span-7{
+    grid-column: span 7;
+}
+.col-span-8{
+    grid-column: span 8;
+}
+.col-span-9{
+    grid-column: span 9;
+}
+.col-span-10{
+    grid-column: span 10;
+}
+.col-span-11{
+    grid-column: span 11;
+}
+.col-span-12{
+    grid-column: span 12;
+}
+
+.col-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin: 1rem; */
+    /* padding: 1rem; */
 }
 
 /* inputs */
+label, input, select{
+    font-family: var(--font-family-primary);
+    display: block;
+    width: 100%;    
+}
 input, select{
     padding: 6px;
 }
@@ -52,10 +120,12 @@ input, select{
 .btn{
     transition: all var(--transition-speed) ease-out;
 
-    padding: .5rem;
-    margin: .25rem;
+    padding: .5rem 0;
+    /* margin: .25rem; */
     font-weight: 600;     
     border-radius: .25rem;
+    width: 100%;
+    margin: 1rem 0;
 }
 .btn:hover{    
     filter: brightness(80%);
@@ -83,7 +153,7 @@ body::-webkit-scrollbar{
     width: .5rem;
 }
 body::-webkit-scrollbar-track{
-    background-color: var(--bg-primary);
+    background-color: var(--bg-container-primary);
 }
 body::-webkit-scrollbar-thumb{
     background-color: var(--accent-color-primary);

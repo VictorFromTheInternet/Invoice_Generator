@@ -36,18 +36,18 @@ function calcTotals(){
     // console.log(subtotal)
     
     // calc subtotal    
-    let lineItems = document.querySelectorAll('#tableLineItems tbody tr.unitPrice')
-    console.log(lineItems)
+    let lineItems = document.querySelectorAll('#tableLineItems tbody tr .unitPrice')
+    // console.log(lineItems)
 
     let sum = 0
     lineItems.forEach((elm,ind)=>{
-        console.log(elm.value)
+        // console.log(elm.value)
         sum += Number.parseFloat(elm.value)
     })
     subtotal.value = sum
 
     // calc total
-    total.value = sum - (fees + taxes)
+    total.value = sum + fees + taxes
 
 
 }
@@ -68,3 +68,11 @@ document.getElementById('btnCalcTotals').addEventListener('click', ()=>{
     console.log('calc totals')
     console.log(calcTotals())
 })
+
+
+// validate the invoice line items before 
+const form = document.getElementById('formTableLineItems');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent default browser behavior
+  
+});

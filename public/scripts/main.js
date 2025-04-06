@@ -71,7 +71,16 @@ function getTableData(){
 
 document.querySelector('#btnDemo').addEventListener('click', ()=>{
     let template = document.querySelector('#template').value
-    let title = document.querySelector('#title').value
+
+    let formBusinessDetails = document.querySelector('#formBusinessDetails')
+    let formData_businessDetails = new FormData(formBusinessDetails)
+    let businessDetails = {}
+    for(const [key, value] of formData_businessDetails.entries()){
+        businessDetails[key] = value
+    }
+
+    let invoiceNumber = document.querySelector('#invoiceNumber').value
+    let invoiceDate = document.querySelector('#invoiceDate').value
     let tableData = getTableData()
     let subtotal = document.querySelector('#subtotal').value
     let taxes = document.querySelector('#taxes').value
@@ -81,7 +90,10 @@ document.querySelector('#btnDemo').addEventListener('click', ()=>{
     let formData = {
         "template": template,
         "data": {
-            "title": title,
+            "businessDetails": businessDetails,
+            "invoiceNumber": invoiceNumber,
+            "invoiceDate": invoiceDate,
+            "invoiceDueDate": invoiceDate,
             "table": tableData,
             "subtotal": subtotal,
             "taxes": taxes,
@@ -93,3 +105,4 @@ document.querySelector('#btnDemo').addEventListener('click', ()=>{
     generateInvoice(formData)
 
 })
+

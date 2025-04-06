@@ -201,9 +201,24 @@
     </style>
 </head>
 <body>
-    <div class="text-container">
-        <h1>  {{ data.title }} </h1>
-    </div>    
+    
+    <div class="row-grid-template">
+        <div class="col-span-6">
+            <div class="text-container">
+                <h3>Bill To</h3>
+                <p>{{data.businessDetails.companyName}}</p>
+                <p>{{data.businessDetails.companyAddress}}, {{data.businessDetails.companyCity}}, {{data.bussinessDetails.companyState}} {{data.businessDetails.companyZip}}</p>
+                <p>{{data.businessDetails.companyPhone}} | {{data.businessDetails.companyEmail}} | {{data.businessDetails.companyFax}}</p>
+                <h3>Issued To</h3>
+                <p>{{data.businessDetails.toName}}</p>
+                <p>{{data.businessDetails.toAddress}}, {{data.businessDetails.toCity}}, {{data.bussinessDetails.toState}} {{data.businessDetails.toZip}}</p>
+                <p>{{data.businessDetails.toPhone}} | {{data.businessDetails.toEmail}} | {{data.businessDetails.toFax}}</p>
+            </div>
+        </div>
+        <div class="col-span-6">
+
+        </div>
+    </div>
 
     <div class="table-container">
         <table class="table">

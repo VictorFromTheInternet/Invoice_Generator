@@ -34,6 +34,8 @@
     border-collapse: collapse;
     font-family: var(--font-family-primary);    
     /* border: 1px solid var(--table-light-border); */
+
+    width: 100%;
     
     margin: 1rem 0;
 }
