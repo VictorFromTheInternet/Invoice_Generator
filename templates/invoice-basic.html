@@ -125,12 +125,13 @@
             width: calc(100% - 1rem);
         }
         table{
-            page-break-inside: avoid;            
+            
             font-family: var(--font-family-sans);
         }
         tr{
             page-break-inside: avoid;
-            page-break-after: auto;
+            /* page-break-before: avoid; */
+            /* page-break-after: always; */
         }
         .table{
             width: 100%;
@@ -208,15 +209,36 @@
                 <h3>Bill To</h3>
                 <p>{{data.businessDetails.companyName}}</p>
                 <p>{{data.businessDetails.companyAddress}}, {{data.businessDetails.companyCity}}, {{data.bussinessDetails.companyState}} {{data.businessDetails.companyZip}}</p>
-                <p>{{data.businessDetails.companyPhone}} | {{data.businessDetails.companyEmail}} | {{data.businessDetails.companyFax}}</p>
+                <p>
+                    {% if data.businessDetails.companyPhone %} {{data.businessDetails.companyPhone}} {% else %} {% endif %}
+                    {% if data.businessDetails.companyEmail %} | {{data.businessDetails.companyEmail}} {% else %} {% endif %}
+                    {% if data.businessDetails.companyFax %} | {{data.businessDetails.companyFax}} {% else %} {% endif %}
+                </p>
                 <h3>Issued To</h3>
                 <p>{{data.businessDetails.toName}}</p>
                 <p>{{data.businessDetails.toAddress}}, {{data.businessDetails.toCity}}, {{data.bussinessDetails.toState}} {{data.businessDetails.toZip}}</p>
-                <p>{{data.businessDetails.toPhone}} | {{data.businessDetails.toEmail}} | {{data.businessDetails.toFax}}</p>
+                <p>
+                    {% if data.businessDetails.toPhone %} {{data.businessDetails.toPhone}} {% else %} {% endif %}
+                    {% if data.businessDetails.toEmail %} | {{data.businessDetails.toEmail}} {% else %} {% endif %}
+                    {% if data.businessDetails.toFax %} | {{data.businessDetails.toFax}} {% else %} {% endif %}
+                </p>
             </div>
         </div>
-        <div class="col-span-6">
-
+        <div class="col-span-4">
+            <div class="text-container text-align-right">
+                <!-- <h1>Invoice</h1> -->
+                <p>Invoice Number: </p>
+                <p>Invoice Date: </p>
+                <p>Due Date: </p>
+            </div>
+        </div>        
+        <div class="col-span-2">
+            <div class="text-container text-align-right">
+                <!-- <h1>Invoice</h1> -->
+                <p>{{data.invoiceNumber}}</p>
+                <p>{{data.invoiceDate}}</p>
+                <p>{{data.invoiceDueDate}}</p>
+            </div>
         </div>
     </div>
 
