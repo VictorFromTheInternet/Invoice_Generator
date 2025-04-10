@@ -107,6 +107,20 @@ p, h1, h2, h3, h4, h5, span{
 }
 
 /* inputs */
+/* PDF */
+.pdf-container{        
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 80vh;    
+}
+
+section{    
+    padding: 1rem;
+    /* border: solid 2px var(--border-color-primary);
+    border-radius: .5rem; */
+    margin: 0.5rem auto 2rem auto;    
+    max-width: 1440px;    
+}
 label, input, select{
     font-family: var(--font-family-primary);
     display: block;
@@ -250,6 +264,7 @@ main{
 
 
 
+
 /* spinner */
 .loading-spinner{
     display: inline-block;
@@ -303,6 +318,11 @@ main{
     main{
         margin-left: 0px;
         margin-bottom: 5rem;
+    }
+
+    .row-grid-template{
+        display: flex;
+        flex-direction: column;
     }
 }
 

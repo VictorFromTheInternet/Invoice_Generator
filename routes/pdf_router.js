@@ -31,7 +31,7 @@ async function getHtmlString(template, data){
 //     res.send({"message":"hello world"})
 // })
 
-router.post('/demo', async (req,res)=>{
+router.post('/generate-pdf', async (req,res)=>{
     try{
         const browser = await puppeteer.launch({
             args: [
