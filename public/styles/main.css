@@ -159,6 +159,10 @@ input, select{
     color: white;
     border: 1px solid var(--bg-container-secondary);    
 }
+.btn:disabled{
+    /* background-color: black; */
+    filter: grayscale(80%);
+}
 
 
 

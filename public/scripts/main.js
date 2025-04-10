@@ -1,64 +1,76 @@
 
+function enableSubmitBtn(){
+    let btn = document.getElementById('btnSubmit').disabled = false    
+}
+
 async function submitInvoice(formData){
 
     const spinner = document.getElementById('loadingSpinnerBtnSubmit')
     spinner.classList.remove('hidden')
 
-    // submit the invoice data to the server
-    const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://localhost:5000/invoice/submit' // Development URL
-        : 'https://invoice-generator-api-5far.onrender.com/invoice/submit'; // Production URL
+    try{        
 
-    const response = await fetch(baseUrl, {
-        method: 'POST',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify({
-            ...formData            
+        // submit the invoice data to the server
+        const baseUrl = window.location.hostname === 'localhost'
+            ? 'http://localhost:5000/invoice/submit' // Development URL
+            : 'https://invoice-generator-api-5far.onrender.com/invoice/submit'; // Production URL
+
+        const response = await fetch(baseUrl, {
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                ...formData            
+            })
         })
-    })
 
-    const submissionResponse = await response.json()
-    console.log(submissionResponse)
-
-    // await timeoutDemo(2000)
+        const submissionResponse = await response.json()
+        console.log(submissionResponse)
 
 
-    spinner.classList.add('hidden')    
+        spinner.classList.add('hidden')    
 
-}
+    }catch(err){
+        spinner.classList.add('hidden')    
+        console.log("Error submitting invoice: ", err)
+    }    
 
-async function timeoutDemo(num){
-    setTimeout(()=>{
-        console.log('timeout')
-    }, num)
 }
 
 
 async function generateInvoice(formData){
+
     //loading spinner
     const spinner = document.getElementById('loadingSpinnerBtnDemo')
     spinner.classList.remove('hidden')
 
+    try{       
 
-    const baseUrl = window.location.hostname === 'localhost'
-        ? 'http://localhost:5000/generate-pdf' // Development URL
-        : 'https://invoice-generator-api-5far.onrender.com/generate-pdf'; // Production URL
 
-    const response = await fetch(baseUrl, {
-        method: 'POST',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
+        const baseUrl = window.location.hostname === 'localhost'
+            ? 'http://localhost:5000/generate-pdf' // Development URL
+            : 'https://invoice-generator-api-5far.onrender.com/generate-pdf'; // Production URL
 
-    const pdfData = await response.json()
+        const response = await fetch(baseUrl, {
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
 
-    spinner.classList.add('hidden')
-    showPDF(pdfData.dataUrl)
-    // console.log(pdfData)
+        const pdfData = await response.json()
+
+        spinner.classList.add('hidden')
+        showPDF(pdfData.dataUrl)
+        // console.log(pdfData)
+
+    }catch(err){
+        spinner.classList.add('hidden')
+        console.log("Error generating pdf: ", err)
+    }
+    
 }
 
 async function showPDF(dataUrl){
@@ -143,6 +155,8 @@ document.querySelector('#btnDemo').addEventListener('click', async ()=>{
     }
 
     generateInvoice(formData)
+
+    enableSubmitBtn()
 
 })
 
