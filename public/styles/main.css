@@ -271,8 +271,8 @@ main{
     border: 6px solid var(--border-color-light);
     border-top: 6px solid var(--accent-color-primary);
     border-radius: 50%;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     animation: spin 2s linear infinite;
 }
   

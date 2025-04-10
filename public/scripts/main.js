@@ -1,7 +1,44 @@
 
+async function submitInvoice(formData){
+
+    const spinner = document.getElementById('loadingSpinnerBtnSubmit')
+    spinner.classList.remove('hidden')
+
+    // submit the invoice data to the server
+    const baseUrl = window.location.hostname === 'localhost'
+        ? 'http://localhost:5000/invoice/submit' // Development URL
+        : 'https://invoice-generator-api-5far.onrender.com/invoice/submit'; // Production URL
+
+    const response = await fetch(baseUrl, {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+            ...formData            
+        })
+    })
+
+    const submissionResponse = await response.json()
+    console.log(submissionResponse)
+
+    // await timeoutDemo(2000)
+
+
+    spinner.classList.add('hidden')    
+
+}
+
+async function timeoutDemo(num){
+    setTimeout(()=>{
+        console.log('timeout')
+    }, num)
+}
+
+
 async function generateInvoice(formData){
     //loading spinner
-    const spinner = document.getElementById('loadingSpinner')
+    const spinner = document.getElementById('loadingSpinnerBtnDemo')
     spinner.classList.remove('hidden')
 
 
@@ -71,7 +108,7 @@ function getTableData(){
 }
 
 
-document.querySelector('#btnDemo').addEventListener('click', ()=>{
+document.querySelector('#btnDemo').addEventListener('click', async ()=>{
     let template = document.querySelector('#template').value
 
     let formBusinessDetails = document.querySelector('#formBusinessDetails')
@@ -83,6 +120,7 @@ document.querySelector('#btnDemo').addEventListener('click', ()=>{
 
     let invoiceNumber = document.querySelector('#invoiceNumber').value
     let invoiceDate = document.querySelector('#invoiceDate').value
+    let invoiceDueDate = document.querySelector('#invoiceDueDate').value
     let tableData = getTableData()
     let subtotal = document.querySelector('#subtotal').value
     let taxes = document.querySelector('#taxes').value
@@ -108,3 +146,42 @@ document.querySelector('#btnDemo').addEventListener('click', ()=>{
 
 })
 
+document.querySelector('#btnSubmit').addEventListener('click', async ()=>{    
+    
+    // get business form data (not submitted rn)
+    let formBusinessDetails = document.querySelector('#formBusinessDetails')
+    let formData_businessDetails = new FormData(formBusinessDetails)
+    let businessDetails = {}
+    for(const [key, value] of formData_businessDetails.entries()){
+        businessDetails[key] = value
+    }
+
+    // get invoice data 
+    let invoiceNumber = document.querySelector('#invoiceNumber').value
+    let invoiceDate = document.querySelector('#invoiceDate').value
+    let invoiceDueDate = document.querySelector('#invoiceDueDate').value
+    let tableData = getTableData()
+    let subtotal = document.querySelector('#subtotal').value
+    let taxes = document.querySelector('#taxes').value
+    let fees = document.querySelector('#fees').value
+    let total = document.querySelector('#total').value
+    let pdfData = document.querySelector('#pdf-iframe').src
+    
+    let formData = {   
+        "pdfData": pdfData,     
+        "businessDetails": businessDetails,
+        "invoiceNumber": invoiceNumber,
+        "invoiceDate": invoiceDate,
+        "invoiceDueDate": invoiceDate,
+        "table": tableData,
+        "subtotal": subtotal,
+        "taxes": taxes,
+        "fees": fees,
+        "total": total        
+    }
+
+    // const pdfResponse = await generateInvoice(formData)
+    submitInvoice(formData)
+
+    
+})
