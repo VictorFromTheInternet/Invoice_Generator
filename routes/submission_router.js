@@ -7,6 +7,22 @@ router.get('/', (req,res)=>{
     res.send({"message":"hello world"})
 })
 
+// get all for dashboard
+router.get('/get-all-dash', async(req,res)=>{
+    try{
+        const submissionData = await invoiceModel.find()
+        if(!submissionData){
+            return res.status(404).send({"message":"No submissions found"})
+        }
+        res.status(200).send(submissionData)
+
+    }catch(err){
+        console.error(err)
+        res.status(500).send({"message":`Error fetching invoices: ${err}`})
+    }
+})
+
+
 // get all invoices
 router.get('/get-all', async(req,res)=>{
     try{
