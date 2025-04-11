@@ -10,7 +10,8 @@ router.get('/', (req,res)=>{
 // get all for dashboard
 router.get('/get-all-dash', async(req,res)=>{
     try{
-        const submissionData = await invoiceModel.find()
+        const fieldsToExclude = ['-pdfData', '-__v', '-createdAt', '-updatedAt'].join(' ')
+        const submissionData = await invoiceModel.find().select(fieldsToExclude)
         if(!submissionData){
             return res.status(404).send({"message":"No submissions found"})
         }
