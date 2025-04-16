@@ -15,8 +15,8 @@
   "description": "pdf template",
   "main": "app.js",
   "scripts": {
-    "devStart": "nodemon backend/app.js",
-    "start": "node backend/app.js"
+    "devStart": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
