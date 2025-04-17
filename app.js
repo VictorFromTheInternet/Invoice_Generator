@@ -14,9 +14,7 @@ async function startServer(){
         // db connection
         console.log(`Mongo URI: ${MONGO_URI}`)
         console.log(`Domain: ${domain}`)
-        await mongoose.connect(MONGO_URI,{
-            serverSelectionTimeoutMS: 30000 // Increase timeout
-        })
+        await mongoose.connect(MONGO_URI)
         console.log('Connected to DB')
 
 
