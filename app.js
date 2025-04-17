@@ -3,13 +3,6 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const path = require('path')
 
-const views_router = require('./routes/views_router')
-const pdf_router = require('./routes/pdf_router')
-const submission_router = require('./routes/submission_router')
-const logger = require('./middleware/logging')
-
-
-
 const app = express()
 const port = process.env.PORT || 3000
 const domain = (process.env.NODE_ENV == 'prod') ? process.env.DOMAIN : 'http://localhost'
@@ -23,6 +16,12 @@ mongoose.connect(MONGO_URI,{
   })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err))
+
+// routers
+const views_router = require('./routes/views_router')
+const pdf_router = require('./routes/pdf_router')
+const submission_router = require('./routes/submission_router')
+const logger = require('./middleware/logging')
 
 // middleware
 app.use(express.json({limit: '50mb'}))
