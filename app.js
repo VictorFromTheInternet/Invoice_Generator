@@ -18,7 +18,9 @@ const MONGO_URI = process.env.MONGO_URI
 // db connection
 console.log(`Mongo URI: ${MONGO_URI}`)
 console.log(`Domain: ${domain}`)
-mongoose.connect(MONGO_URI)
+mongoose.connect(MONGO_URI,{
+    serverSelectionTimeoutMS: 30000 // Increase timeout
+  })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err))
 
