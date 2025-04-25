@@ -29,7 +29,7 @@ async function startServer(){
         })
 
     }catch(err){
-        console.error('MongoDB connection error:', err)
+        console.error('error:', err)
     }                
 }
 startServer()
